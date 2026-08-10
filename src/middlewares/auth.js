@@ -8,7 +8,7 @@ const userAuth = async (req, res, next) => {
     if (!token) {
     return res.status(401).json({message: "Unauthorized Access!" , status:false});
     }else{
-    let decodedObj = await jwt.verify(token, "DevTinder@Mansisinma@19");
+    let decodedObj = await jwt.verify(token, process.env.TOKEN_SECRET);
 
     let _id = decodedObj._id;
     let user = await User.findById({ _id });

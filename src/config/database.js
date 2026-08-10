@@ -1,10 +1,8 @@
 const mongoose = require('mongoose')
 
-const URI="mongodb+srv://mansimg2000:MongoTest123456@learnmongo.ookfesx.mongodb.net/dev-tinder"
-
 const connectDB = async() =>{
     try{
-   await mongoose.connect(URI)
+   await mongoose.connect(process.env.MONGO_URI)
     }catch{(err)=>{
         console.error("DB ERROR: ",err)
     }}
